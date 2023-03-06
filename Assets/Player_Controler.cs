@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class Player_Controler : MonoBehaviour
 {
+    public float bulletspeed = 20;
+    public float playerspeed = 2;
     public GameObject bulletPrefab;
     Vector2 movementVector;
     Transform bulletSpawn;
@@ -23,7 +25,7 @@ public class Player_Controler : MonoBehaviour
         // transform.position = new Vector3(transform.position.x + movementVector.x * Time.deltaTime,
         //    0,
         //  transform.position.z + movementVector.y *Time.deltaTime);
-        transform.Translate(  Vector3.forward * movementVector.y * Time.deltaTime);
+        transform.Translate(  Vector3.forward * movementVector.y * Time.deltaTime * playerspeed);
     }
    void OnMove(InputValue inputValue)
     {
@@ -34,7 +36,7 @@ public class Player_Controler : MonoBehaviour
     {
       GameObject bullet =   Instantiate(bulletPrefab, bulletSpawn );
         bullet.transform.parent = null;
-        bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward* 10, ForceMode.VelocityChange);
+        bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * bulletspeed, ForceMode.VelocityChange);
         Destroy(bullet,5);
     }
 }
