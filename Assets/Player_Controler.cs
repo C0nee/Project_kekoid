@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Player_Controler : MonoBehaviour
 {
+    float hp = 10;
     public float bulletspeed = 20;
     public float playerspeed = 2;
     public GameObject bulletPrefab;
     Vector2 movementVector;
     Transform bulletSpawn;
+    public GameObject hpBar;
+    Scrollbar hpScrollbar;
     // Start is called before the first frame update
     void Start()
     {
         movementVector = Vector2.zero;
         bulletSpawn = transform.Find("BulletSpawn");
+        hpScrollbar
     }
 
     // Update is called once per frame
@@ -38,5 +43,14 @@ public class Player_Controler : MonoBehaviour
         bullet.transform.parent = null;
         bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * bulletspeed, ForceMode.VelocityChange);
         Destroy(bullet,5);
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+       if (collision.gameObject.CompareTag("Enemy")){
+            hp--;
+            hpScrollbar.size = hp / 10;
+
+
+        }
     }
 }
