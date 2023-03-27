@@ -37,6 +37,7 @@ public class ZombieBehavior : MonoBehaviour
                 GetComponent<BoxCollider>().enabled = false;
                 Destroy(transform.gameObject, 1);
             }
+            //chuj
         }
     }
 }
