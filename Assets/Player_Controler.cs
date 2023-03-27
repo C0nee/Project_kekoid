@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -20,7 +20,7 @@ public class Player_Controler : MonoBehaviour
     {
         movementVector = Vector2.zero;
         bulletSpawn = transform.Find("BulletSpawn");
-        hpScrollbar
+        
     }
 
     // Update is called once per frame
@@ -52,5 +52,10 @@ public class Player_Controler : MonoBehaviour
 
 
         }
+    }
+  void Die()
+    {
+        transform.Translate(Vector3.up);
+        transform.Rotate(Vector3.right);
     }
 }
