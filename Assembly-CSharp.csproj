@@ -57,9 +57,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\LevelManager.cs" />
+    <Compile Include="Assets\cameracontroller.cs" />
     <Compile Include="Assets\ZombieBehavior.cs" />
     <Compile Include="Assets\Player_Controler.cs" />
-    <Compile Include="Assets\cameracontroller.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

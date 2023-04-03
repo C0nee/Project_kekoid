@@ -40,7 +40,7 @@ public class LevelManager : MonoBehaviour
             spawnPoint *= UnityEngine.Random.Range(10f, 20f);
             spawnPoint += player.transform.position;
         }
-        //TODO: check this shit
+        
         while (Physics.CheckSphere(new Vector3(spawnPoint.x, 1, spawnPoint.z), 0.9f));
 
         return spawnPoint;

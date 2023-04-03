@@ -20,7 +20,7 @@ public class Player_Controler : MonoBehaviour
     {
         movementVector = Vector2.zero;
         bulletSpawn = transform.Find("BulletSpawn");
-        
+        hpScrollbar = hpBar.GetComponent<Scrollbar>();
     }
 
     // Update is called once per frame
@@ -48,7 +48,10 @@ public class Player_Controler : MonoBehaviour
     {
        if (collision.gameObject.CompareTag("Enemy")){
             hp--;
+            if (hp <= 0) Die();
             hpScrollbar.size = hp / 10;
+            Vector3 pushVector = collision.gameObject.transform.position - transform.position;
+            collision.gameObject.GetComponent<Rigidbody>().AddForce(pushVector.normalized * 5, ForceMode.Impulse);
 
 
         }
