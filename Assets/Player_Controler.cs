@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class Player_Controler : MonoBehaviour
-{
+{//aaaaa
     float hp = 10;
     public float bulletspeed = 20;
     public float playerspeed = 2;
